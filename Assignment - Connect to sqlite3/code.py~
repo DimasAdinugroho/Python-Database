@@ -1,0 +1,13 @@
+import sqlite3
+import re
+
+fh = open('mbox.txt')
+
+for line in fh:
+	if not line.startswith('From: ') : continue # ambil line yang awalnya 'From: '
+	pieces = line.split() #displit dan diambil emailnya
+	email = pieces[1]
+	y = re.findall('@(\S+)',email)
+	print ''.join(y)
+
+
